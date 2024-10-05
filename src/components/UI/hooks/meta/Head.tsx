@@ -68,7 +68,7 @@ export default function Head() {
             <meta name="description" content={metadata.description} />
             <meta property="og:description" content={metadata.description} />
             <meta property="og:type" content="property & designer" />
-            {/* <meta name="google-site-verification" content={metadata.verification} /> */}
+            <meta name="google-site-verification" content={metadata.verification} />
             <meta property="og:title" content={metadata.title} />
             <meta name="author" content={metadata.author} />
             <meta property="og:url" content={canonicalUrl} />
