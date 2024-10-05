@@ -12,18 +12,18 @@ export const metadata = {
     // verification_bing: process.env.NEXT_PUBLIC_SITE_VERIFICATION_BING
 };
 
-const siteUrl = "";
+const siteUrl = "https://islamic-art.vercel.app";
 const faviconUrl = `${siteUrl}/favicon.ico`;
-const canonicalUrl = `${siteUrl}/`;
+const canonicalUrl = `${siteUrl}`;
 
 export default function Head() {
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         name: "rineta",
-        image: "/favicon.ico",
+        image: "https://islamic-art.vercel.app/favicon.ico",
         "@id": "",
-        url: "",
+        url: "https://islamic-art.vercel.app",
         telephone: "081398632939",
         address: {
             "@type": "PostalAddress",
@@ -57,7 +57,7 @@ export default function Head() {
             "",
         ],
         description: "",
-        logo: "/favicon.ico",
+        logo: "https://islamic-art.vercel.app/favicon.ico",
     };
     return (
         <Fragment>
