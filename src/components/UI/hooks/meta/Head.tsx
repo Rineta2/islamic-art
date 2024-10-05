@@ -8,7 +8,7 @@ export const metadata = {
     author: "rineta",
     faviconUrl: "/favicon.ico",
     keywords: "Arsitektur Islam,Desain arsitektur Islam,Arsitektur masjid,Gaya arsitektur Islam,Arsitek Muslim,Inspirasi arsitektur Islam,Proyek arsitektur Islam,Sejarah arsitektur Islam,Struktur bangunan Islam,Estetika arsitektur Islam,Kaligrafi Islam,Seni kaligrafi Arab,Teknik kaligrafi Islam,Kaligrafi sebagai seni,Al-Qur'an dan kaligrafi,Alat kaligrafi,Karya kaligrafi terkenal,Kaligrafi modern,Makna kaligrafi Islam,Pelajaran kaligrafi",
-    // verification: process.env.NEXT_PUBLIC_SITE_VERIFICATION,
+    verification: process.env.NEXT_PUBLIC_SITE_VERTIFICATION,
     // verification_bing: process.env.NEXT_PUBLIC_SITE_VERIFICATION_BING
 };
 
