@@ -12,7 +12,7 @@ export const metadata = {
     // verification_bing: process.env.NEXT_PUBLIC_SITE_VERIFICATION_BING
 };
 
-const siteUrl = "https://islamic-art.vercel.app";
+const siteUrl = "https://islamic-art";
 const faviconUrl = `${siteUrl}/favicon.ico`;
 const canonicalUrl = `${siteUrl}`;
 
