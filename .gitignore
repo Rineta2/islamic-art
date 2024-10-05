@@ -45,3 +45,6 @@ jsconfig.json
 
 #env
 .env
+
+#eslint
+.eslintrc.json
