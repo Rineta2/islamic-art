@@ -34,3 +34,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+.editorconfig
+.env.example
+.eslintrc
+.strapi*
+.eslintignore
+yarn.lock
+jsconfig.json
+
+#env
+.env

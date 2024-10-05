@@ -1,0 +1,303 @@
+@import "./globals.scss";
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  transition: all 0.5s ease-in-out;
+  padding: 1rem 5%;
+
+  &.fixed {
+    background-color: hsla(0, 0%, 100%, 0.8);
+    padding: 0.5rem 5%;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      border-radius: 50%;
+      object-position: center top;
+
+      @media only screen and (max-width: 992px) {
+        width: 80px;
+        height: 80px;
+      }
+    }
+
+    .nav__list {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+
+      @media only screen and (max-width: 992px) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        z-index: 999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        clip-path: inset(0 0 100% 0);
+        transition: all 0.5s ease-in-out;
+
+        &.show__menu {
+          clip-path: inset(0 0 0 0);
+        }
+
+        li {
+          .nav__link {
+            color: $background;
+            font-size: 2rem;
+          }
+        }
+      }
+
+      .close {
+        display: none;
+
+        @media only screen and (max-width: 992px) {
+          position: absolute;
+          top: 2rem;
+          right: 1rem;
+          font-size: 2rem;
+          background-color: $primary-c;
+          cursor: pointer;
+          display: inline-flex;
+          color: $background;
+          padding: 0.5rem;
+          border-radius: 50%;
+        }
+      }
+
+      li {
+        list-style: none;
+
+        .nav__link {
+          font-size: 1.3rem;
+          text-transform: capitalize;
+          letter-spacing: 2px;
+          transition: all 0.5s ease-in-out;
+        }
+      }
+
+      .btn__actions {
+        font-size: 1.3rem;
+        letter-spacing: 2px;
+        color: $text-c;
+        transition: all 0.5s ease-in-out;
+        width: 220px;
+        height: 70px;
+        display: grid;
+        place-items: center;
+        border-radius: 12px;
+        margin-left: 20px;
+        background-color: $text-c;
+        transition: all 0.5s ease-in-out;
+        color: $background;
+
+        @media only screen and (max-width: 992px) {
+          margin-left: 0;
+        }
+
+        &:hover {
+          color: $background;
+          background-color: $primary-c;
+        }
+      }
+    }
+
+    .hamburger {
+      display: none;
+
+      @media only screen and (max-width: 992px) {
+        display: inline-flex;
+
+        .menu__icon {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  position: relative;
+  background-color: $text-c;
+
+  .footer__container {
+    padding: 1rem 2%;
+
+    .content {
+      display: flex;
+      justify-content: space-between;
+      gap: 5rem;
+      margin-top: 2rem;
+
+      @media only screen and (max-width: 992px) {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .profile {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        @media only screen and (max-width: 992px) {
+          width: 100%;
+          align-items: center;
+          text-align: center;
+        }
+
+        img {
+          width: 150px;
+          height: 150px;
+          object-fit: cover;
+          border-radius: 50%;
+
+          @media only screen and (max-width: 992px) {
+            margin-bottom: 2rem;
+          }
+
+          @media only screen and (max-width: 468px) {
+            margin-bottom: 1rem;
+          }
+        }
+
+        p {
+          font-size: 1.2rem;
+          line-height: 1.5;
+          color: $background;
+
+          @media only screen and (max-width: 468px) {
+            font-size: 1rem;
+          }
+        }
+
+        .social {
+          display: flex;
+          gap: 2rem;
+
+          @media only screen and (max-width: 992px) {
+            margin-top: 2rem;
+          }
+
+          @media only screen and (max-width: 468px) {
+            margin-top: 1rem;
+          }
+
+          a {
+            color: $background;
+          }
+        }
+      }
+
+      .footer__list {
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+
+        @media only screen and (max-width: 992px) {
+          width: 100%;
+        }
+
+        @media only screen and (max-width: 468px) {
+          flex-direction: column;
+          gap: 5rem;
+          text-align: center;
+        }
+
+        .list {
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
+
+          h1 {
+            font-size: 2rem;
+            letter-spacing: 2px;
+            color: $background;
+
+            @media only screen and (max-width: 768px) {
+              font-size: 1.7rem;
+            }
+          }
+
+          li {
+            margin-top: 1rem;
+            list-style: none;
+
+            &:hover {
+              a {
+                &::after {
+                  width: 100%;
+                }
+              }
+            }
+
+            a {
+              font-size: 1.3rem;
+              letter-spacing: 2px;
+              position: relative;
+              color: $background;
+              text-transform: capitalize;
+
+              @media only screen and (max-width: 768px) {
+                font-size: 1.15rem;
+              }
+
+              &::after {
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                width: 0;
+                height: 3px;
+                content: "";
+                border-radius: 12px;
+                background-color: $background;
+                transition: all 0.5s ease-in-out;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .copyright {
+      margin-top: 5rem;
+      font-size: 1.5rem;
+      letter-spacing: 2px;
+      color: $background;
+
+      @media only screen and (max-width: 992px) {
+        text-align: center;
+      }
+
+      @media only screen and (max-width: 768px) {
+        font-size: 1.3rem;
+      }
+
+      @media only screen and (max-width: 468px) {
+        line-height: 2;
+        font-size: 1.15rem;
+      }
+    }
+  }
+}

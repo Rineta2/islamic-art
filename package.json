@@ -3,22 +3,37 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@next/font": "^14.2.14",
+    "@remixicon/react": "^4.2.0",
+    "animate.css": "^4.1.1",
+    "axios": "^1.7.7",
+    "date-fns": "^4.1.0",
+    "gsap": "^3.12.5",
+    "lucide-react": "^0.446.0",
+    "next": "14.2.11",
     "react": "^18",
+    "react-awesome-reveal": "^4.2.14",
     "react-dom": "^18",
-    "next": "14.2.11"
+    "react-fast-marquee": "^1.6.5",
+    "react-toastify": "^10.0.5",
+    "remixicon": "^4.3.0",
+    "sass": "^1.78.0",
+    "sharp": "^0.33.5",
+    "swiper": "^11.1.14"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
-    "eslint-config-next": "14.2.11"
+    "eslint-config-next": "14.2.11",
+    "typescript": "^5"
   }
 }
