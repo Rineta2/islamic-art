@@ -69,8 +69,6 @@
     "react-toastify": "^10.0.5",
     "remixicon": "^4.3.0",
     "rimraf": "^6.0.1",
-    "sass": "^1.79.4",
-    "sass-loader": "^16.0.2",
     "sharp": "^0.33.5",
     "swiper": "^11.1.14"
   },
@@ -80,6 +78,8 @@
     "@types/react-dom": "^18",
     "eslint": "^8.57.1",
     "eslint-config-next": "14.2.11",
+    "sass": "^1.79.4",
+    "sass-loader": "^16.0.2",
     "typescript": "^5"
   }
 }
