@@ -4,7 +4,7 @@ import "@/components/sass/layout.scss";
 
 import "@/components/sass/globals.scss";
 
-import { Roboto } from "@next/font/google";
+import { Roboto } from 'next/font/google';
 
 const roboto = Roboto({
   subsets: ["latin"],
