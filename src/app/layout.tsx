@@ -1,7 +1,52 @@
 import { Fragment } from "react";
 
-import "@/components/sass/layout.scss";
+import type { Metadata } from 'next';
 
+// Metadata export
+export const metadata: Metadata = {
+  title: 'Islamic Art',
+  description: "Arsitektur Islam,Desain arsitektur Islam,Arsitektur masjid,Gaya arsitektur Islam,Arsitek Muslim,Inspirasi arsitektur Islam,Proyek arsitektur Islam,Sejarah arsitektur Islam,Struktur bangunan Islam,Estetika arsitektur Islam,Kaligrafi Islam,Seni kaligrafi Arab,Teknik kaligrafi Islam,Kaligrafi sebagai seni,Al-Qur'an dan kaligrafi,Alat kaligrafi,Karya kaligrafi terkenal,Kaligrafi modern,Makna kaligrafi Islam,Pelajaran kaligrafi",
+  authors: [{ name: "rineta" }],
+  generator: "next",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1
+    }
+  },
+  referrer: "origin-when-cross-origin",
+  keywords: "Islamic Art,Islamic Architecture,Islamic Calligraphy,Muslim Artists,Arsitektur Islam,Desain arsitektur Islam,Arsitektur masjid,Gaya arsitektur Islam,Arsitek Muslim,Inspirasi arsitektur Islam,Proyek arsitektur Islam,Sejarah arsitektur Islam,Struktur bangunan Islam,Estetika arsitektur Islam,Kaligrafi Islam,Seni kaligrafi Arab,Teknik kaligrafi Islam,Kaligrafi sebagai seni,Al-Qur'an dan kaligrafi,Alat kaligrafi,Karya kaligrafi terkenal,Kaligrafi modern,Makna kaligrafi Islam,Pelajaran kaligrafi",
+  icons: {
+    icon: "/favicon.ico",
+  },
+  openGraph: {
+    title: "Islamic Art",
+    description: "Arsitektur Islam,Desain arsitektur Islam,Arsitektur masjid,Gaya arsitektur Islam,Arsitek Muslim,Inspirasi arsitektur Islam,Proyek arsitektur Islam,Sejarah arsitektur Islam,Struktur bangunan Islam,Estetika arsitektur Islam,Kaligrafi Islam,Seni kaligrafi Arab,Teknik kaligrafi Islam,Kaligrafi sebagai seni,Al-Qur'an dan kaligrafi,Alat kaligrafi,Karya kaligrafi terkenal,Kaligrafi modern,Makna kaligrafi Islam,Pelajaran kaligrafi",
+    url: "https://islamic-art.vercel.app",
+    siteName: "Islamic Art",
+    locale: "id_ID",
+    images: [
+      {
+        url: "https://islamic-art.vercel.app/favicon.ico",
+        width: 1920,
+        height: 1080,
+      },
+    ],
+  },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
+
+import "@/components/sass/layout.scss";
 import "@/components/sass/globals.scss";
 
 import { Roboto } from 'next/font/google';
@@ -13,11 +58,7 @@ const roboto = Roboto({
 });
 
 import dynamic from "next/dynamic";
-
 import "animate.css";
-
-import Head from "@/components/UI/hooks/meta/Head";
-
 import GoogleTag from "@/components/UI/hooks/meta/GoogleTag";
 
 const Header = dynamic(() => import("@/components/UI/layout/Header"), {
@@ -30,24 +71,88 @@ const Footer = dynamic(() => import("@/components/UI/layout/Footer"), {
 
 import PopUp from "@/components/UI/hooks/form/PopUp";
 
+const siteUrl = "https://islamic-art";
+const faviconUrl = `${siteUrl}/favicon.ico`;
+const canonicalUrl = `${siteUrl}/`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "VisualArtwork",
+    name: "Islamic Art",
+    image: "https://islamic-art.vercel.app/favicon.ico",
+    "@id": "https://islamic-art",
+    url: "https://islamic-art",
+    telephone: "081398632939",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress:
+        "Jl. Assalam 1 No.1-25, Sanggrahan, Condongcatur, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta",
+      addressLocality: "Jl. Assalam 1 No.1-25, Sanggrahan, Condongcatur, Kec. Depok, Kabupaten Sleman",
+      addressRegion: "Jawa Tengah",
+      postalCode: "55281",
+      addressCountry: "ID",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: -6.595038,
+      longitude: 106.670528,
+    },
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
+      opens: "09:00",
+      closes: "21:00",
+    },
+    sameAs: ["https://www.facebook.com/", "https://www.instagram.com/"],
+    description: "Arsitektur Islam,Desain arsitektur Islam,Arsitektur masjid,Gaya arsitektur Islam,Arsitek Muslim,Inspirasi arsitektur Islam,Proyek arsitektur Islam,Sejarah arsitektur Islam,Struktur bangunan Islam,Estetika arsitektur Islam,Kaligrafi Islam,Seni kaligrafi Arab,Teknik kaligrafi Islam,Kaligrafi sebagai seni,Al-Qur'an dan kaligrafi,Alat kaligrafi,Karya kaligrafi terkenal,Kaligrafi modern,Makna kaligrafi Islam,Pelajaran kaligrafi",
+    logo: "https://islamic-art.vercel.app/favicon.ico",
+    title: "Islamic Art",
+  };
+
+  const jsonLdString = JSON.stringify(jsonLd);
+
   return (
     <html lang="en">
-      <Head />
+      <head>
+        <title>{String(metadata.title ?? "Islamic Art")}</title>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="version" content="1.0" />
+        <meta name="description" content={metadata.description ?? ""} />
+        <meta name="keywords" content={Array.isArray(metadata.keywords) ? metadata.keywords.join(", ") : metadata.keywords ?? ""} />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content={String(metadata.openGraph?.title ?? "")} />
+        <meta property="og:description" content={String(metadata.openGraph?.description ?? "")} />
+        <meta property="og:url" content={metadata.openGraph?.url?.toString() ?? ""} />
+        <meta name="referrer" content={metadata.referrer ?? ""} />
+        <meta name="googlebot" content="index, follow" />
+        <meta name="google-site-verification" content={process.env.NEXT_PUBLIC_SITE_VERTIFICATION} />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff" />
+        <link rel="icon" href={faviconUrl} />
+        <link rel="canonical" href={canonicalUrl} />
+        <link rel="icon" href={faviconUrl} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdString }} />
+      </head>
       <body className={roboto.className}>
-        <Fragment>
-          <main>
-            <Header />
-            <PopUp />
-            {children}
-            <Footer />
-          </main>
-        </Fragment>
         <GoogleTag />
+        <Header />
+        <PopUp />
+        <Fragment>{children}</Fragment>
+        <Footer />
       </body>
     </html>
   );
