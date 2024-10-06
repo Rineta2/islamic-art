@@ -8,6 +8,27 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "license": "MIT",
+  "author": {
+    "name": "rineta"
+  },
+  "module": "./src/**/!(*.stories|*.spec).{ts,tsx}",
+  "main": "next.config.js",
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@next/font": "^14.2.14",
