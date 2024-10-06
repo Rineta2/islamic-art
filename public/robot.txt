@@ -1,0 +1,5 @@
+
+User-agent: *
+Allow: /
+
+Sitemap: https://islamic-art.vercel.app/sitemap.xml
