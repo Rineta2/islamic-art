@@ -38,11 +38,11 @@
                     letter-spacing: 2px;
 
                     @media only screen and (max-width: 1280px) {
-                        font-size: 2rem;
+                        font-size: 1.6rem;
                     }
 
                     @media only screen and (max-width: 468px) {
-                        font-size: 1.5rem;
+                        font-size: 1.3rem;
                         line-height: 2;
                     }
                 }
@@ -90,7 +90,7 @@
                         font-weight: 900;
 
                         @media only screen and (max-width: 1280px) {
-                            font-size: 3rem;
+                            font-size: 2rem;
                         }
 
                         @media only screen and (max-width: 768px) {
@@ -98,7 +98,8 @@
                         }
 
                         @media only screen and (max-width: 468px) {
-                            font-size: 2rem;
+                            font-size: 1.3rem;
+                            font-weight: bold;
                         }
                     }
                 }
@@ -111,7 +112,7 @@
                     line-height: 1.5;
 
                     @media only screen and (max-width: 1280px) {
-                        font-size: 1.2rem;
+                        font-size: 1.1rem;
                     }
 
                     @media only screen and (max-width: 992px) {
@@ -120,6 +121,7 @@
 
                     @media only screen and (max-width: 468px) {
                         max-width: 100%;
+                        font-size: 0.8rem;
                     }
                 }
             }
