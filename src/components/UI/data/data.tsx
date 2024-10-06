@@ -606,19 +606,19 @@ export const socialLink = [
   {
     id: 1,
     icons: <Facebook size={30} />,
-    path: "",
+    path: "https://www.facebook.com/",
   },
 
   {
     id: 2,
     icons: <Instagram size={30} />,
-    path: "",
+    path: "https://www.instagram.com/",
   },
 
   {
     id: 3,
     icons: <RiTiktokLine size={30} />,
-    path: "",
+    path: "https://www.tiktok.com/",
   },
 ];
 
