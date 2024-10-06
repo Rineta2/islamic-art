@@ -1,35 +1,55 @@
-import React, { Fragment } from 'react';
-
-import Script from 'next/script';
+import { Fragment } from "react";
 
 export const metadata = {
     title: "Islamic Art",
-    description: "Temukan dunia menawan Seni Islam, di mana pola rumit, warna-warna cerah, dan simbolisme yang mendalam bersatu untuk mencerminkan warisan budaya yang kaya dari peradaban Islam",
+    description: "Arsitektur Islam,Desain arsitektur Islam,Arsitektur masjid,Gaya arsitektur Islam,Arsitek Muslim,Inspirasi arsitektur Islam,Proyek arsitektur Islam,Sejarah arsitektur Islam,Struktur bangunan Islam,Estetika arsitektur Islam,Kaligrafi Islam,Seni kaligrafi Arab,Teknik kaligrafi Islam,Kaligrafi sebagai seni,Al-Qur'an dan kaligrafi,Alat kaligrafi,Karya kaligrafi terkenal,Kaligrafi modern,Makna kaligrafi Islam,Pelajaran kaligrafi",
     author: "rineta",
-    faviconUrl: "/favicon.ico",
     keywords: "Arsitektur Islam,Desain arsitektur Islam,Arsitektur masjid,Gaya arsitektur Islam,Arsitek Muslim,Inspirasi arsitektur Islam,Proyek arsitektur Islam,Sejarah arsitektur Islam,Struktur bangunan Islam,Estetika arsitektur Islam,Kaligrafi Islam,Seni kaligrafi Arab,Teknik kaligrafi Islam,Kaligrafi sebagai seni,Al-Qur'an dan kaligrafi,Alat kaligrafi,Karya kaligrafi terkenal,Kaligrafi modern,Makna kaligrafi Islam,Pelajaran kaligrafi",
+    icons: {
+        icon: "/favicon.ico",
+    },
+    openGraph: {
+        title: "Islamic Art",
+        description: "Arsitektur Islam,Desain arsitektur Islam,Arsitektur masjid,Gaya arsitektur Islam,Arsitek Muslim,Inspirasi arsitektur Islam,Proyek arsitektur Islam,Sejarah arsitektur Islam,Struktur bangunan Islam,Estetika arsitektur Islam,Kaligrafi Islam,Seni kaligrafi Arab,Teknik kaligrafi Islam,Kaligrafi sebagai seni,Al-Qur'an dan kaligrafi,Alat kaligrafi,Karya kaligrafi terkenal,Kaligrafi modern,Makna kaligrafi Islam,Pelajaran kaligrafi",
+        url: "https://islamic-art.vercel.app",
+        siteName: "Islamic Art",
+        images: [
+            {
+                url: "https://islamic-art.vercel.app/favicon.ico",
+                width: 1920,
+                height: 1080,
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Islamic Art",
+        description: "Arsitektur Islam,Desain arsitektur Islam,Arsitektur masjid,Gaya arsitektur Islam,Arsitek Muslim,Inspirasi arsitektur Islam,Proyek arsitektur Islam,Sejarah arsitektur Islam,Struktur bangunan Islam,Estetika arsitektur Islam,Kaligrafi Islam,Seni kaligrafi Arab,Teknik kaligrafi Islam,Kaligrafi sebagai seni,Al-Qur'an dan kaligrafi,Alat kaligrafi,Karya kaligrafi terkenal,Kaligrafi modern,Makna kaligrafi Islam,Pelajaran kaligrafi",
+        creator: "@rineta",
+        images: "https://islamic-art.vercel.app/favicon.icon",
+    },
     verification: process.env.NEXT_PUBLIC_SITE_VERTIFICATION,
-    // verification_bing: process.env.NEXT_PUBLIC_SITE_VERIFICATION_BING
 };
 
 const siteUrl = "https://islamic-art";
 const faviconUrl = `${siteUrl}/favicon.ico`;
-const canonicalUrl = `${siteUrl}`;
+const canonicalUrl = `${siteUrl}/`;
 
-export default function Head() {
+const Head = () => {
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        name: "rineta",
+        name: "Islamic Art",
         image: "https://islamic-art.vercel.app/favicon.ico",
-        "@id": "",
-        url: "https://islamic-art.vercel.app",
+        "@id": "https://islamic-art",
+        url: "https://islamic-art",
         telephone: "081398632939",
         address: {
             "@type": "PostalAddress",
-            streetAddress: "Jl. Assalam 1 No.1-25, Sanggrahan, Condongcatur, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta",
-            addressLocality: "Sanggrahan, Condongcatur, Kec. Depok, Kabupaten Sleman",
-            addressRegion: "Yogyakarta",
+            streetAddress:
+                "Jl. Assalam 1 No.1-25, Sanggrahan, Condongcatur, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta",
+            addressLocality: "Jl. Assalam 1 No.1-25, Sanggrahan, Condongcatur, Kec. Depok, Kabupaten Sleman",
+            addressRegion: "Jawa Tengah",
             postalCode: "55281",
             addressCountry: "ID",
         },
@@ -41,24 +61,26 @@ export default function Head() {
         openingHoursSpecification: {
             "@type": "OpeningHoursSpecification",
             dayOfWeek: [
-                "Minggu",
-                "Senin",
-                "Selasa",
-                "Rabu",
-                "Kamis",
-                "Jumat",
-                "Sabtu",
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
             ],
-            opens: "08:00",
-            closes: "16:00",
+            opens: "09:00",
+            closes: "21:00",
         },
-        sameAs: [
-            "",
-            "",
-        ],
-        description: "",
+        sameAs: ["https://www.facebook.com/", "https://www.instagram.com/"],
+
+        description: "Arsitektur Islam,Desain arsitektur Islam,Arsitektur masjid,Gaya arsitektur Islam,Arsitek Muslim,Inspirasi arsitektur Islam,Proyek arsitektur Islam,Sejarah arsitektur Islam,Struktur bangunan Islam,Estetika arsitektur Islam,Kaligrafi Islam,Seni kaligrafi Arab,Teknik kaligrafi Islam,Kaligrafi sebagai seni,Al-Qur'an dan kaligrafi,Alat kaligrafi,Karya kaligrafi terkenal,Kaligrafi modern,Makna kaligrafi Islam,Pelajaran kaligrafi",
         logo: "https://islamic-art.vercel.app/favicon.ico",
+        title: "Islamic Art",
     };
+
+    const jsonLdString = JSON.stringify(jsonLd);
+
     return (
         <Fragment>
             <title>{metadata.title}</title>
@@ -84,11 +106,14 @@ export default function Head() {
             <link rel="shortcut icon" href={faviconUrl} type="image/x-icon" />
             <link rel="manifest" href="/manifest.json" />
             <link rel="canonical" href={canonicalUrl} />
-            <Script
+
+            <script
                 type="application/ld+json"
-                id="json-ld"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                dangerouslySetInnerHTML={{ __html: jsonLdString }}
             />
+
         </Fragment>
     );
-}
+};
+
+export default Head;
