@@ -95,7 +95,7 @@ header {
         }
       }
 
-      li {
+      .item {
         list-style: none;
 
         .nav__link {
@@ -105,6 +105,11 @@ header {
           transition: all 0.5s ease-in-out;
         }
       }
+    }
+
+    .nav__actions {
+      display: flex;
+      gap: 1rem;
 
       .btn__actions {
         font-size: 1.3rem;
@@ -130,16 +135,16 @@ header {
           background-color: $primary-c;
         }
       }
-    }
 
-    .hamburger {
-      display: none;
+      .hamburger {
+        display: none;
 
-      @media only screen and (max-width: 992px) {
-        display: inline-flex;
+        @media only screen and (max-width: 992px) {
+          display: inline-flex;
 
-        .menu__icon {
-          cursor: pointer;
+          .menu__icon {
+            cursor: pointer;
+          }
         }
       }
     }

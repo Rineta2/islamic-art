@@ -57,6 +57,22 @@ export default function Header() {
             );
           })}
 
+          <div className="close" onClick={() => setOpen(false)}>
+            <RiCloseLine size={40} />
+          </div>
+        </ul>
+
+        <div className="nav__actions">
+          <div className="hamburger">
+            <Fade triggerOnce duration={3000} delay={300} direction="right">
+              <RiMenu5Line
+                onClick={() => setOpen(true)}
+                className="menu__icon"
+                size={30}
+              />
+            </Fade>
+          </div>
+
           {navToogle.map((item: any) => {
             return (
               <Fade direction="right" duration={3000} delay={300} triggerOnce key={item.id}>
@@ -68,20 +84,6 @@ export default function Header() {
               </Fade>
             );
           })}
-
-          <div className="close" onClick={() => setOpen(false)}>
-            <RiCloseLine size={40} />
-          </div>
-        </ul>
-
-        <div className="hamburger">
-          <Fade triggerOnce duration={3000} delay={300} direction="right">
-            <RiMenu5Line
-              onClick={() => setOpen(true)}
-              className="menu__icon"
-              size={30}
-            />
-          </Fade>
         </div>
       </nav>
     </header>
