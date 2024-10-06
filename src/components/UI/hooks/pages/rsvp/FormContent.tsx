@@ -17,7 +17,6 @@ export default function FormContent() {
         alamat: ''
     });
 
-    // Menampilkan pesan error melalui toast jika ada
     useEffect(() => {
         if (error) {
             toast.error(error);
@@ -25,13 +24,11 @@ export default function FormContent() {
         }
     }, [error]);
 
-    // Menangani perubahan input
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
-    // Validasi input form
     const validateForm = () => {
         const { nama, nomber, jadwal, alamat } = formData;
         if (!nama || !nomber || !jadwal || !alamat) {
@@ -43,7 +40,6 @@ export default function FormContent() {
         return null;
     };
 
-    // Mengirim data form
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         const errorMessage = validateForm();
