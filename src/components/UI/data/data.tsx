@@ -110,7 +110,7 @@ export const navLink = [
 export const navToogle = [
   {
     id: 1,
-    title: "Book Demo Now",
+    title: "RSVP",
     path: "/rsvp",
   },
 ];
