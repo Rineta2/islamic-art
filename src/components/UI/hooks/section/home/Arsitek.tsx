@@ -19,7 +19,7 @@ export default function Arsitek() {
           return (
             <Image
               src={item.img}
-              alt={item.alt}
+              alt={"arsitek"}
               key={item.id}
               quality={100}
               ref={(el) => {

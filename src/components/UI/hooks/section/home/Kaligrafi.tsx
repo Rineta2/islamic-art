@@ -17,7 +17,7 @@ export default function Kaligrafi() {
         return (
           <Image
             src={item.img}
-            alt={item.alt}
+            alt={"kaligrafi"}
             key={item.id}
             quality={100}
             ref={(el) => {
