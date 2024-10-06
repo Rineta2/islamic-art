@@ -240,7 +240,7 @@ footer {
           text-align: center;
         }
 
-        .list {
+        div {
           display: flex;
           flex-direction: column;
           gap: 2rem;
@@ -255,39 +255,45 @@ footer {
             }
           }
 
-          li {
-            margin-top: 1rem;
-            list-style: none;
+          .list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
 
-            &:hover {
-              a {
-                &::after {
-                  width: 100%;
+            li {
+              margin-top: 1rem;
+              list-style: none;
+
+              &:hover {
+                a {
+                  &::after {
+                    width: 100%;
+                  }
                 }
               }
-            }
 
-            a {
-              font-size: 1.3rem;
-              letter-spacing: 2px;
-              position: relative;
-              color: $background;
-              text-transform: capitalize;
+              a {
+                font-size: 1.3rem;
+                letter-spacing: 2px;
+                position: relative;
+                color: $background;
+                text-transform: capitalize;
 
-              @media only screen and (max-width: 768px) {
-                font-size: 1.15rem;
-              }
+                @media only screen and (max-width: 768px) {
+                  font-size: 1.15rem;
+                }
 
-              &::after {
-                position: absolute;
-                bottom: -5px;
-                left: 0;
-                width: 0;
-                height: 3px;
-                content: "";
-                border-radius: 12px;
-                background-color: $background;
-                transition: all 0.5s ease-in-out;
+                &::after {
+                  position: absolute;
+                  bottom: -5px;
+                  left: 0;
+                  width: 0;
+                  height: 3px;
+                  content: "";
+                  border-radius: 12px;
+                  background-color: $background;
+                  transition: all 0.5s ease-in-out;
+                }
               }
             }
           }
