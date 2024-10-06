@@ -10,11 +10,20 @@ header {
   padding: 1rem 5%;
 
   &.fixed {
-    background-color: hsla(0, 0%, 100%, 0.8);
-    padding: 0.5rem 5%;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: hsla(0, 0%, 100%, 0.8);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: -1;
+    }
   }
 
   .nav {
@@ -323,21 +332,26 @@ footer {
 
 .popup__content {
   position: fixed;
-  bottom: 13%;
-  right: 2%;
-  width: 20%;
-  height: 53%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
   z-index: 9999;
   background-color: $background;
   box-shadow: 1px 1px 5px $text-c;
-  padding: 1rem 1%;
   border-radius: 6px;
-  overflow: hidden;
-  backface-visibility: hidden;
-  visibility: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
   transition: all 0.5s ease-in-out;
+  visibility: hidden;
+  display: grid;
+  place-items: center;
+
+  @media only screen and (max-width: 1280px) {
+    bottom: 14%;
+  }
+
   &.show {
-    backface-visibility: visible;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     visibility: visible;
   }
 
