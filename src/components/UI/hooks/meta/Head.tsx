@@ -13,6 +13,7 @@ export const metadata = {
         description: "Arsitektur Islam,Desain arsitektur Islam,Arsitektur masjid,Gaya arsitektur Islam,Arsitek Muslim,Inspirasi arsitektur Islam,Proyek arsitektur Islam,Sejarah arsitektur Islam,Struktur bangunan Islam,Estetika arsitektur Islam,Kaligrafi Islam,Seni kaligrafi Arab,Teknik kaligrafi Islam,Kaligrafi sebagai seni,Al-Qur'an dan kaligrafi,Alat kaligrafi,Karya kaligrafi terkenal,Kaligrafi modern,Makna kaligrafi Islam,Pelajaran kaligrafi",
         url: "https://islamic-art.vercel.app",
         siteName: "Islamic Art",
+        locale: "id_ID",
         images: [
             {
                 url: "https://islamic-art.vercel.app/favicon.ico",
@@ -38,7 +39,7 @@ const canonicalUrl = `${siteUrl}/`;
 const Head = () => {
     const jsonLd = {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
+        "@type": "VisualArtwork",
         name: "Islamic Art",
         image: "https://islamic-art.vercel.app/favicon.ico",
         "@id": "https://islamic-art",
@@ -99,6 +100,9 @@ const Head = () => {
             <meta name="googlebot" content="index, follow" />
             <meta name="theme-color" content="#ffffff" />
             <meta name="robots" content="index, follow" />
+            <meta name="og:locale" content="id_ID" />
+            <meta name="og:site_name" content="Islamic Art" />
+            <meta name="og:type" content="website" />
             <link rel="icon" href={faviconUrl} type="image/x-icon" sizes="any" />
             <link rel="icon" href={faviconUrl} type="image/svg+xml" />
             <link rel="icon" href="/favicon.ico" />
