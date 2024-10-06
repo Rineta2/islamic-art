@@ -23,7 +23,7 @@ export default function CategoryFilter({
       </Fade>
 
       {uniqueCategories.map((category) => (
-        <Fade delay={300} duration={3000} direction="right" triggerOnce>
+        <Fade delay={300} duration={3000} direction="right" triggerOnce key={category}>
           <button
             key={category}
             className={`btn ${selectedCategory === category ? "active" : ""}`}
