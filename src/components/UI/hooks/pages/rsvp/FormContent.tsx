@@ -1,7 +1,6 @@
 "use client";
 
 import React, { Fragment, useRef, useState, useEffect } from 'react';
-
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -13,7 +12,7 @@ export default function FormContent() {
     const [error, setError] = useState<string | null>(null);
     const [formData, setFormData] = useState<{ [key: string]: string }>({
         nama: '',
-        nomber: '',
+        nomor: '',
         jadwal: '',
         alamat: ''
     });
@@ -39,13 +38,13 @@ export default function FormContent() {
         const form = formRef.current;
         const formDataObject = new FormData(form as HTMLFormElement);
 
-        if (!formDataObject.get('nama') || !formDataObject.get('nomber') || !formDataObject.get('jadwal') || !formDataObject.get('alamat')) {
+        if (!formDataObject.get('nama') || !formDataObject.get('nomor') || !formDataObject.get('jadwal') || !formDataObject.get('alamat')) {
             setError("Semua kolom harus diisi.");
             return;
         }
 
-        if (!/^\d+$/.test(formDataObject.get('nomber')!.toString())) {
-            setError("Nomber Whatsapp harus berupa angka.");
+        if (!/^\d+$/.test(formDataObject.get('nomor')!.toString())) {
+            setError("Nomor WhatsApp harus berupa angka.");
             return;
         }
 
@@ -61,6 +60,7 @@ export default function FormContent() {
             if (result.result === 'success') {
                 toast.success("Formulir Berhasil Terkirim 🥳");
                 form?.reset();
+                setFormData({ nama: '', nomor: '', jadwal: '', alamat: '' }); // Reset state after success
             } else if (result.result === 'error') {
                 setError(result.error);
             } else {
@@ -98,23 +98,45 @@ export default function FormContent() {
 
                 <div className="double">
                     <div className="box">
-                        <input type="text" name='nama' value={formData.nama} onChange={handleChange} placeholder='Nama Lengkap' />
+                        <input
+                            type="text"
+                            name='nama'
+                            value={formData.nama}
+                            onChange={handleChange}
+                            placeholder='Nama Lengkap'
+                        />
                     </div>
 
                     <div className="box">
-                        <input type="number" name='nomber' value={formData.nomber} onChange={handleChange} placeholder='Nomber Whatsapp' />
+                        <input
+                            type="text"
+                            name='nomor'
+                            value={formData.nomor}
+                            onChange={handleChange}
+                            placeholder='Nomor WhatsApp'
+                        />
                     </div>
                 </div>
 
                 <div className="singgle">
                     <div className="box">
-                        <input type="datetime-local" name="jadwal" value={formData.jadwal} onChange={handleChange} />
+                        <input
+                            type="datetime-local"
+                            name="jadwal"
+                            value={formData.jadwal}
+                            onChange={handleChange}
+                        />
                     </div>
                 </div>
 
                 <div className="singgle">
                     <div className="box">
-                        <textarea placeholder='Alamat' name='alamat' value={formData.alamat} onChange={handleChange} ></textarea>
+                        <textarea
+                            placeholder='Alamat'
+                            name='alamat'
+                            value={formData.alamat}
+                            onChange={handleChange}
+                        ></textarea>
                     </div>
                 </div>
 
