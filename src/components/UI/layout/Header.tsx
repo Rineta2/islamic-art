@@ -44,10 +44,10 @@ export default function Header() {
           );
         })}
 
-        <ul className={`nav__list ${open ? "show__menu" : ""}`}>
+        <ul className={`list ${open ? "show__menu" : ""}`}>
           {navLink.map((item: any) => {
             return (
-              <li className="nav__item" key={item.id}>
+              <li className="item" key={item.id}>
                 <Fade direction="down" duration={3000} delay={item.id * 300} triggerOnce>
                   <Link href={item.path} className="nav__link">
                     {item.title}
