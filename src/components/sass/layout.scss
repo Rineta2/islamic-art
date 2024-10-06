@@ -343,8 +343,6 @@ footer {
   clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
   transition: all 0.5s ease-in-out;
   visibility: hidden;
-  display: grid;
-  place-items: center;
 
   @media only screen and (max-width: 1280px) {
     bottom: 14%;
@@ -362,58 +360,67 @@ footer {
     text-align: center;
   }
 
-  .content__form {
+  .form__box {
     display: grid;
     place-items: center;
     width: 100%;
-    gap: 1rem;
 
-    .box {
+    .content__form {
+      display: grid;
+      place-items: center;
       width: 100%;
-      input {
-        width: 100%;
-        height: 50px;
-        border-radius: 6px;
-        border: 1px solid $text-c;
-        padding: 0.5rem;
-        outline: none;
-        letter-spacing: 2px;
-      }
+      gap: 1rem;
 
-      select {
+      .box {
         width: 100%;
-        height: 50px;
-        padding: 0.5rem;
-        letter-spacing: 2px;
-        border-radius: 6px;
+        display: grid;
+        place-items: center;
 
-        option {
+        input {
+          width: 100%;
+          height: 50px;
+          border-radius: 6px;
+          border: 1px solid $text-c;
+          padding: 0.5rem;
+          outline: none;
+          letter-spacing: 2px;
+        }
+
+        select {
+          width: 100%;
+          height: 50px;
+          padding: 0.5rem;
+          letter-spacing: 2px;
+          border-radius: 6px;
+
+          option {
+            font-size: 1.2rem;
+          }
+        }
+
+        textarea {
+          width: 100%;
+          height: 80px;
+          resize: none;
+          padding: 0.5rem;
+          letter-spacing: 2px;
           font-size: 1.2rem;
+          border-radius: 6px;
         }
       }
 
-      textarea {
+      button {
         width: 100%;
-        height: 80px;
-        resize: none;
-        padding: 0.5rem;
+        height: 50px;
+        font-size: 1.3rem;
         letter-spacing: 2px;
-        font-size: 1.2rem;
-        border-radius: 6px;
+        background-color: $text-c;
+        color: $background;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        border-radius: 12px;
       }
-    }
-
-    button {
-      width: 100%;
-      height: 50px;
-      font-size: 1.3rem;
-      letter-spacing: 2px;
-      background-color: $text-c;
-      color: $background;
-      cursor: pointer;
-      border: none;
-      outline: none;
-      border-radius: 12px;
     }
   }
 

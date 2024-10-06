@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Fragment, useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -10,13 +10,14 @@ export default function FormContent() {
     const formRef = useRef<HTMLFormElement>(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
-    const [formData, setFormData] = useState<{ [key: string]: string }>({
+    const [formData, setFormData] = useState({
         nama: '',
-        nomor: '',
+        nomber: '',
         jadwal: '',
         alamat: ''
     });
 
+    // Menampilkan pesan error melalui toast jika ada
     useEffect(() => {
         if (error) {
             toast.error(error);
@@ -24,47 +25,55 @@ export default function FormContent() {
         }
     }, [error]);
 
+    // Menangani perubahan input
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value,
-        }));
+        setFormData(prev => ({ ...prev, [name]: value }));
     };
 
+    // Validasi input form
+    const validateForm = () => {
+        const { nama, nomber, jadwal, alamat } = formData;
+        if (!nama || !nomber || !jadwal || !alamat) {
+            return "Semua kolom harus diisi.";
+        }
+        if (!/^\d+$/.test(nomber)) {
+            return "Nomber Whatsapp harus berupa angka.";
+        }
+        return null;
+    };
+
+    // Mengirim data form
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-
-        const form = formRef.current;
-        const formDataObject = new FormData(form as HTMLFormElement);
-
-        if (!formDataObject.get('nama') || !formDataObject.get('nomor') || !formDataObject.get('jadwal') || !formDataObject.get('alamat')) {
-            setError("Semua kolom harus diisi.");
-            return;
-        }
-
-        if (!/^\d+$/.test(formDataObject.get('nomor')!.toString())) {
-            setError("Nomor WhatsApp harus berupa angka.");
+        const errorMessage = validateForm();
+        if (errorMessage) {
+            setError(errorMessage);
             return;
         }
 
         setLoading(true);
         try {
+            const form = formRef.current;
+            const formDataObject = new FormData(form as HTMLFormElement);
+
             const response = await fetch(scriptUrl!, {
                 method: "POST",
                 body: formDataObject,
             });
-
             const result = await response.json();
 
             if (result.result === 'success') {
                 toast.success("Formulir Berhasil Terkirim 🥳");
                 form?.reset();
-                setFormData({ nama: '', nomor: '', jadwal: '', alamat: '' }); // Reset state after success
-            } else if (result.result === 'error') {
-                setError(result.error);
+                setFormData({
+                    nama: '',
+                    nomber: '',
+                    jadwal: '',
+                    alamat: ''
+                });
             } else {
-                setError("Gagal mengirim pesan 😔");
+                setError(result.error || "Gagal mengirim pesan 😔");
             }
         } catch (error) {
             console.error("Error:", error);
@@ -75,77 +84,72 @@ export default function FormContent() {
     };
 
     return (
-        <Fragment>
-            <form ref={formRef} onSubmit={handleSubmit}>
-                <h1>Jadwalkan Agenda Anda Sekarang</h1>
+        <form ref={formRef} onSubmit={handleSubmit}>
+            <h1>Jadwalkan Agenda Anda Sekarang</h1>
 
-                <div className="center__form">
-                    <div className="box__num">
-                        <div className="num">1</div>
-                        <span>Isi formulirnya</span>
-                    </div>
-
-                    <div className="box__num">
-                        <div className="num">2</div>
-                        <span>Pesan Agenda Waktu</span>
-                    </div>
-
-                    <div className="box__num">
-                        <div className="num">3</div>
-                        <span>Hadiri Agenda</span>
-                    </div>
+            <div className="center__form">
+                <div className="box__num">
+                    <div className="num">1</div>
+                    <span>Isi formulirnya</span>
                 </div>
-
-                <div className="double">
-                    <div className="box">
-                        <input
-                            type="text"
-                            name='nama'
-                            value={formData.nama}
-                            onChange={handleChange}
-                            placeholder='Nama Lengkap'
-                        />
-                    </div>
-
-                    <div className="box">
-                        <input
-                            type="text"
-                            name='nomor'
-                            value={formData.nomor}
-                            onChange={handleChange}
-                            placeholder='Nomor WhatsApp'
-                        />
-                    </div>
+                <div className="box__num">
+                    <div className="num">2</div>
+                    <span>Pesan Agenda Waktu</span>
                 </div>
-
-                <div className="singgle">
-                    <div className="box">
-                        <input
-                            type="datetime-local"
-                            name="jadwal"
-                            value={formData.jadwal}
-                            onChange={handleChange}
-                        />
-                    </div>
+                <div className="box__num">
+                    <div className="num">3</div>
+                    <span>Hadiri Agenda</span>
                 </div>
+            </div>
 
-                <div className="singgle">
-                    <div className="box">
-                        <textarea
-                            placeholder='Alamat'
-                            name='alamat'
-                            value={formData.alamat}
-                            onChange={handleChange}
-                        ></textarea>
-                    </div>
+            <div className="double">
+                <div className="box">
+                    <input
+                        type="text"
+                        name='nama'
+                        value={formData.nama}
+                        onChange={handleChange}
+                        placeholder='Nama Lengkap'
+                    />
                 </div>
+                <div className="box">
+                    <input
+                        type="text"
+                        name='nomor'
+                        value={formData.nomber}
+                        onChange={handleChange}
+                        placeholder='Nomber Whatsapp'
+                    />
+                </div>
+            </div>
 
-                <div className="btn">
-                    <button type="submit" disabled={loading}>
-                        {loading ? "Sedang Mengirim..." : "Kirim Pesan"}
-                    </button>
+            <div className="singgle">
+                <div className="box">
+                    <input
+                        type="datetime-local"
+                        name="jadwal"
+                        value={formData.jadwal}
+                        onChange={handleChange}
+                    />
                 </div>
-            </form>
-        </Fragment>
+            </div>
+
+            <div className="singgle">
+                <div className="box">
+                    <textarea
+                        placeholder='Alamat'
+                        name='alamat'
+                        value={formData.alamat}
+                        onChange={handleChange}
+                    ></textarea>
+                </div>
+            </div>
+
+            <div className="btn">
+                <button type="submit" disabled={loading}>
+                    {loading ? "Sedang Mengirim..." : "Kirim Pesan"}
+                </button>
+            </div>
+        </form>
     );
 }
