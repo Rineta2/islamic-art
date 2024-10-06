@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+import withBundleAnalyzer from "@next/bundle-analyzer";
 
 const nextConfig = {
   images: {
@@ -9,20 +10,19 @@ const nextConfig = {
         port: "1337",
         pathname: "/**",
       },
-
       {
         protocol: "https",
         hostname: "cdn.magloft.com",
-        port: "",
         pathname: "/**",
       },
-
       {
         protocol: "https",
         hostname: "islamicart.up.railway.app",
         pathname: "/uploads/**",
       },
     ],
+    deviceSizes: [640, 750, 1080, 1920],
+    imageSizes: [16, 32, 48, 64, 96],
   },
   eslint: {
     ignoreDuringBuilds: true,
@@ -46,11 +46,9 @@ const nextConfig = {
     NEXT_PUBLIC_API_URL_BLOG: process.env.NEXT_PUBLIC_API_URL_BLOG,
     NEXT_PUBLIC_API_URL_PORTOFOLIO: process.env.NEXT_PUBLIC_API_URL_PORTOFOLIO,
     NEXT_PUBLIC_API_APP_SCRIPT: process.env.NEXT_PUBLIC_API_APP_SCRIPT,
-    NEXT_PUBLIC_SITE_VERTIFICATION: process.env.NEXT_PUBLIC_SITE_VERTIFICATION,
+    NEXT_PUBLIC_SITE_VERIFICATION: process.env.NEXT_PUBLIC_SITE_VERIFICATION,
   },
 };
-
-import withBundleAnalyzer from "@next/bundle-analyzer";
 
 const bundleAnalyzer = withBundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
