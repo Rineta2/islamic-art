@@ -3,3 +3,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://islamic-art.vercel.app/sitemap.xml
+sitemap: https://islamic-art.vercel.app/BingSiteAuth.xml
