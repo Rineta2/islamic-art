@@ -2,7 +2,8 @@ import { Fragment } from "react";
 
 import type { Metadata } from 'next';
 
-// Metadata export
+import Script from "next/script";
+
 export const metadata: Metadata = {
   title: 'Islamic Art',
   description: "Arsitektur Islam,Desain arsitektur Islam,Arsitektur masjid,Gaya arsitektur Islam,Arsitek Muslim,Inspirasi arsitektur Islam,Proyek arsitektur Islam,Sejarah arsitektur Islam,Struktur bangunan Islam,Estetika arsitektur Islam,Kaligrafi Islam,Seni kaligrafi Arab,Teknik kaligrafi Islam,Kaligrafi sebagai seni,Al-Qur'an dan kaligrafi,Alat kaligrafi,Karya kaligrafi terkenal,Kaligrafi modern,Makna kaligrafi Islam,Pelajaran kaligrafi",
@@ -58,8 +59,8 @@ const roboto = Roboto({
 });
 
 import dynamic from "next/dynamic";
+
 import "animate.css";
-import GoogleTag from "@/components/UI/hooks/meta/GoogleTag";
 
 const Header = dynamic(() => import("@/components/UI/layout/Header"), {
   ssr: false,
@@ -71,7 +72,7 @@ const Footer = dynamic(() => import("@/components/UI/layout/Footer"), {
 
 import PopUp from "@/components/UI/hooks/form/PopUp";
 
-const siteUrl = "https://islamic-art";
+const siteUrl = "https://islamic-art"
 const faviconUrl = `${siteUrl}/favicon.ico`;
 const canonicalUrl = `${siteUrl}/`;
 
@@ -146,13 +147,33 @@ export default function RootLayout({
         <link rel="canonical" href={canonicalUrl} />
         <link rel="icon" href={faviconUrl} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdString }} />
+        <Script
+          id="google-tag-manager"
+          strategy="lazyOnload"
+          dangerouslySetInnerHTML={{
+            __html: `
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-NSQXTQGF');
+        `,
+          }}
+        />
       </head>
       <body className={roboto.className}>
-        <GoogleTag />
         <Header />
         <PopUp />
         <Fragment>{children}</Fragment>
         <Footer />
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-NSQXTQGF"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          ></iframe>
+        </noscript>
       </body>
     </html>
   );
