@@ -9,7 +9,7 @@ export default function Social() {
     <Fragment>
       {socialLink.map((item) => {
         return (
-          <Link href={item.path} key={item.id} className="footer__social-link">
+          <Link href={item.path} key={item.id} className="footer__social-link" aria-label={item.name}>
             {item.icons}
           </Link>
         );
