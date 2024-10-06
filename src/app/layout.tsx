@@ -72,7 +72,7 @@ const Footer = dynamic(() => import("@/components/UI/layout/Footer"), {
 
 import PopUp from "@/components/UI/hooks/form/PopUp";
 
-const siteUrl = "https://islamic-art"
+const siteUrl = "https://islamic-art.vercel.app"
 const faviconUrl = `${siteUrl}/favicon.ico`;
 const canonicalUrl = `${siteUrl}/`;
 
