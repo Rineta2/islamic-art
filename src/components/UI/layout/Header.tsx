@@ -60,9 +60,11 @@ export default function Header() {
           {navToogle.map((item: any) => {
             return (
               <Fade direction="right" duration={3000} delay={300} triggerOnce key={item.id}>
-                <Link href={item.path} className="btn__actions" key={item.id}>
-                  {item.title}
-                </Link>
+                <div key={item.id} className="btn__actions">
+                  <Link href={item.path}>
+                    {item.title}
+                  </Link>
+                </div>
               </Fade>
             );
           })}
