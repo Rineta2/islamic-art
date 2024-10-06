@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
   images: {
     remotePatterns: [
@@ -22,11 +23,21 @@ const nextConfig = {
         pathname: "/uploads/**",
       },
     ],
-    domains: ["islamicart.up.railway.app"],
   },
   eslint: {
     ignoreDuringBuilds: true,
   },
+  experimental: {
+    turbo: {
+      enable: true,
+    },
+  },
 };
 
-export default nextConfig;
+import withBundleAnalyzer from "@next/bundle-analyzer";
+
+const bundleAnalyzer = withBundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+});
+
+export default bundleAnalyzer(nextConfig);
