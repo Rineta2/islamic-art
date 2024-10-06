@@ -74,7 +74,7 @@ export default function BlogDetails() {
               {socialLink.map((item: any) => {
                 return (
                   <Zoom triggerOnce delay={item.id * 300} duration={3000} key={item.id}>
-                    <Link key={item.id} href={item.path}>
+                    <Link key={item.id} href={item.path} rel="noreferrer">
                       {item.icons}
                     </Link>
                   </Zoom>
