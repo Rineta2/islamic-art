@@ -87,8 +87,13 @@ export default function RootLayout({
     name: "Islamic Art",
     image: "https://islamic-art.vercel.app/favicon.ico",
     "@id": "https://islamic-art",
-    url: "https://islamic-art",
+    url: "https://islamic-art.vercel.app",
     telephone: "081398632939",
+    "potentialAction": {
+      "@type": "SearchAction",
+      target: "https://islamic-art.vercel.app/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    },
     address: {
       "@type": "PostalAddress",
       streetAddress:
